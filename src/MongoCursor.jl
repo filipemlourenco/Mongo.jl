@@ -27,7 +27,7 @@ done(cursor::MongoCursor, _::Void) = begin
         (:mongoc_cursor_next, libmongoc),
         Bool, (Ptr{Void}, Ptr{Ptr{Void}}),
         cursor._wrap_,
-        Array(Ptr{Void}, 1)
+        Array{Ptr{Void}}(1)
         )
 end
 export done
