@@ -13,7 +13,7 @@ provides(Sources, Dict(
 
 provides(
     BuildProcess,
-    Autotools(libtarget = "libmongoc-1.3.la"),
+    Autotools(libtarget = "libmongoc-1.0.la"),
     libmongoc,
     os = :Unix
     )
