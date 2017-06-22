@@ -28,5 +28,7 @@ include("MongoCollection.jl")
 include("MongoCursor.jl")
 include("query.jl")
 include("bulk_insert.jl")
+include("aggregate.jl")
+
 
 end
