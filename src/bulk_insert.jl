@@ -1,3 +1,5 @@
+export insert_bulk
+
 ## Bulk insert
 function insert_bulk(collection::Mongo.MongoCollection,
 documents::Vector{Mongo.BSONObject},
