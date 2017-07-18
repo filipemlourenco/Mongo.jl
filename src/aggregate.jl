@@ -1,3 +1,4 @@
+using DataStructures
 export mongo_aggregate
 ############ Mongo Aggregate (requires mongoc v1.3.5)#################################
 function mongo_aggregate(collection::Mongo.MongoCollection,pipeline::Array,options::Dict=Dict("allowDiskUse"=>false))
