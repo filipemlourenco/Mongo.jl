@@ -1,3 +1,5 @@
+using DataFrames
+
 function cursor_dicts(cursor::Mongo.MongoCursor)
 
 arr=[]
@@ -16,7 +18,7 @@ end
 
 function dicts_df(dicts::Array,header=[])
 
-df=CAAT.DataFrame()
+df=DataFrame()
 
     ###check if header defined
     header==[] ? k=keys(dicts[1]) : k=header
