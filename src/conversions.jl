@@ -1,5 +1,7 @@
 using DataFrames
 
+export cursor_dicts,dicts_df
+
 function cursor_dicts(cursor::Mongo.MongoCursor)
 
 arr=[]
