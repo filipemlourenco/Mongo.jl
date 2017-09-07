@@ -14,15 +14,15 @@ export MongoCursor
 start(cursor::MongoCursor) = nothing
 export start
 
-next(cursor::MongoCursor, V::Void) =
+next(cursor::MongoCursor, state::Void) =
     (BSONObject(ccall(
         (:mongoc_cursor_current, libmongoc),
         Ptr{Void}, (Ptr{Void},),
         cursor._wrap_
-        ), Union{}), V)
+        ), Union{}), state)
 export next
 
-done(cursor::MongoCursor, V::Void) = begin
+done(cursor::MongoCursor, state::Void) = begin
     return !ccall(
         (:mongoc_cursor_next, libmongoc),
         Bool, (Ptr{Void}, Ptr{Ptr{Void}}),
