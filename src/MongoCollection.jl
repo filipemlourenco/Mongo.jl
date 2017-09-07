@@ -31,7 +31,7 @@ show(io::IO, collection::MongoCollection) = begin
         Ptr{UInt8}, (Ptr{Void},),
         collection._wrap_
         )
-    name = unsafe_string(nameCStr)
+    name = Base.unsafe_string(nameCStr)
     print(io, "MongoCollection($name)")
 end
 export show
