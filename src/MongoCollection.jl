@@ -1,4 +1,4 @@
-using Compat
+# using Compat
 
 type MongoCollection
     _wrap_::Ptr{Void}
@@ -31,7 +31,7 @@ show(io::IO, collection::MongoCollection) = begin
         Ptr{UInt8}, (Ptr{Void},),
         collection._wrap_
         )
-    name = Base.unsafe_string(nameCStr)
+    name = unsafe_string(nameCStr)
     print(io, "MongoCollection($name)")
 end
 export show
