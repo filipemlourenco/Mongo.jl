@@ -42,7 +42,7 @@ df=DataFrame()
 
           end
           =#
-            df[Symbol(rk)]=@data(map(x->x,ark))
+            df[Symbol(rk)]=(map(x->x,ark))
 
         end
 
