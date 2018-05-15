@@ -1,4 +1,4 @@
-using DataFrames
+using DataFrames,Missings
 
 export cursor_dicts,dicts_df
 
@@ -32,7 +32,7 @@ df=DataFrame()
 
                 for row in dicts
 
-                    haskey(row,rk)? push!(ark,(row[rk])) : push!(ark,NA)
+                    haskey(row,rk)? push!(ark,(row[rk])) : push!(ark,missing)
 
                 end
 
