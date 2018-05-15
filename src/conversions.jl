@@ -100,7 +100,7 @@ sample_arr=unique(sample_arr)
 
     end
 
-try df[f]=convert(DataArrays.DataArray{def_type,1}, df[f])  catch df[f]=convert(DataArrays.DataArray{Any,1}, df[f]) end
+try df[f]=convert(Array{def_type,1}, df[f])  catch df[f]=convert(Array{Any,1}, df[f]) end
 
 def_type=Any
 sample_arr=[]
