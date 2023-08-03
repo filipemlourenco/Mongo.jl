@@ -51,6 +51,30 @@ facts("Mongo") do
         @fact count(collection, ("_id" => oid)) --> 0
         @fact count(collection) --> 0
     end
+
+    context("pipeline") do
+        col = MongoCollection(client, "foo", "pipeline")
+
+        # seed
+        for x in 1:10000
+            insert(col, Dict("id" => repeat("a", 30), "value" => rand()*1000, "detail" => fill(Dict("id"=>rand(), "value"=>rand()), 4)))
+        end
+
+        # execute
+        pipeline= [
+           Dict("\$match" => Dict("value"=>Dict("\$gt"=>0))),
+           Dict("\$project" => Dict("detail"=>1)),
+           Dict("\$unwind" => "\$detail")
+        ]
+        options=Dict("allowDiskUse"=>true)
+        arr = cursor_dicts(Mongo.mongo_aggregate(col, pipeline, options))
+
+        # validate
+        @fact length(arr) --> 40000
+
+        # clean
+        delete(col, Dict())
+    end
 end
 
 facts("Mongo: bad host/port") do
